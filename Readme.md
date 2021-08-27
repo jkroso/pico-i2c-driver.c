@@ -2,6 +2,8 @@
 
 This code turns a Raspberry Pi Pico into a USB slave and a I²C master. You send it commands over USB serial and it forwards them onto it's own I²C bus.
 
+To use it, connect your pico via USB with the bootselect button held down. Then drag and drop the [built code](https://github.com/jkroso/pico-i2c-driver.c/releases/download/v0.1.0/pico-i2c-driver.c.uf2) onto it. Then unplug the USB. From now on every time you plug it in it will be ready to go.
+
 Pin Map:
 
 ```
