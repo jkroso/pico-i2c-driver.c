@@ -1,13 +1,9 @@
-TCL = $(shell dirname $(shell realpath $(shell which openocd)))/../tcl
-
 .PHONY:
 run: build
-	openocd -s ${TCL} -f interface/picoprobe.cfg -f target/rp2040.cfg -c "program $(wildcard build/*.elf) verify reset exit"
+	cp build/pico-i2c-driver.c.uf2 /Volumes/RPI-RP2/
 
-build: *.c build/deps
-	cd build && cmake .. && make -j8
-
-build/deps: clib.json
-	mkdir -p build/deps
+build: *.c
+	rm -rf build
+	mkdir -p build
 	touch build/.nosync
-	clib install -do build/deps
+	cd build && cmake .. && make -j8
